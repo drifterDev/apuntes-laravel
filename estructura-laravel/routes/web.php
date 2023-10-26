@@ -38,5 +38,5 @@ Route::get('/', function () {
 Route::controller(PageController::class)->group(function () {
     Route::get('home', 'home')->name('home');
     Route::get('blog', 'blog')->name('blog');
-    Route::get('post/{slug}', 'post')->name('post');
+    Route::get('post/{post:slug}', 'post')->name('post');
 });
