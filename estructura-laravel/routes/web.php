@@ -37,11 +37,6 @@ Route::controller(PageController::class)->group(function () {
     Route::get('post/{post:slug}', 'post')->name('post');
 });
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
