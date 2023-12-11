@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Introducción a Laravel</title>
-    <link rel="stylesheet" href="{{ assets('assets/app.css') }}">
+    @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="w-64 h-64 bg-red-800">
-        <a href="">Home</a>
-        <a href="">Blog</a>
+    <div class="w-full h-24 bg-gray-500 flex items-center pl-5 text-xl">
+        <a href="{{route('home')}}" class="mr-5 hover:scale-105">Home</a>
+        <a href="{{route('blog')}}" class="hover:scale-105">Blog</a>
     </div>
-    @yield('content')
+    <div class="p-8 text-lg">
+        @yield('content')
+    </div>
 </body>
 </html>
 
-<!--Añadir estilos-->
