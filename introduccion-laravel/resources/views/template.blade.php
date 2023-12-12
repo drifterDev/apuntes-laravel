@@ -10,7 +10,12 @@
 <body>
     <div class="w-full h-24 bg-gray-500 flex items-center pl-5 text-xl">
         <a href="{{route('home')}}" class="mr-5 hover:scale-105">Home</a>
-        <a href="{{route('blog')}}" class="hover:scale-105">Blog</a>
+        <a href="{{route('blog')}}" class="mr-5 hover:scale-105">Blog</a>
+        @auth
+        <a href="{{route('dashboard')}}" class="hover:scale-105">Dashboard</a>
+        @else
+        <a href="{{route('dashboard')}}" class="hover:scale-105">Login</a>
+        @endauth
     </div>
     <div class="p-8 text-lg">
         @yield('content')
