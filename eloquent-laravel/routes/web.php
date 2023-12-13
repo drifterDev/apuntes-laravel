@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('getAllProjects', [ProjectController::class, 'getAllProjects']);
+Route::get('insertNewProject', [ProjectController::class, 'insertProject']);
+Route::get('updateProject', [ProjectController::class, 'updateProject']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

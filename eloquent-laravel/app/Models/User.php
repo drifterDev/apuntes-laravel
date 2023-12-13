@@ -11,6 +11,7 @@ class User extends Model
     protected $primaryKey = 'user_id';
     public $timestamps = true;
     public $incrementing = true;
+    protected $fillable = ['name'];
     // Siempre tomará este valor sin importar el parametro, para que tome el parametro mejor configurarlo desde sql
     // protected $attributes = [
     //     'name' => 'Mateo'
