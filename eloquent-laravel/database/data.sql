@@ -45,3 +45,27 @@ CREATE TABLE
         FOREIGN KEY(user_id) REFERENCES users(user_id),
         FOREIGN KEY(company_id) REFERENCES companies(company_id)
     ) Engine = InnoDb;
+
+INSERT INTO cities (name) VALUES ('Bogota');
+
+INSERT INTO companies (name) VALUES ('Empresa ABC');
+
+INSERT INTO users (name) VALUES ('Elmo');
+
+INSERT INTO
+    projects (
+        city_id,
+        company_id,
+        user_id,
+        name,
+        execution_date,
+        is_active
+    )
+VALUES (
+        '1',
+        '1',
+        '1',
+        'Proyecto de test',
+        '2020-04-30',
+        '1'
+    );
