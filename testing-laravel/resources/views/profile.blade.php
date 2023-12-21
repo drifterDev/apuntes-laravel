@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    @error('photo')
+        <span>Error al cargar la foto</span>
+    @enderror
     <form action="profile" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" name="photo">
