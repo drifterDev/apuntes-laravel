@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Repository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RepositoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $repositories = $request->user()->repositories;
+        return view('repositories.index', ['repositories' => $repositories]);
     }
 
     public function create()
@@ -29,7 +31,10 @@ class RepositoryController extends Controller
 
     public function show(Repository $repository)
     {
-        //
+        if (Auth::user()->id != $repository->user_id) {
+            abort(403);
+        }
+        return view('repositories.show', compact('repository'));
     }
 
     public function edit(Repository $repository)
@@ -43,12 +48,18 @@ class RepositoryController extends Controller
             'url' => 'required',
             'description' => 'required'
         ]);
+        if (Auth::user()->id != $repository->user_id) {
+            abort(403);
+        }
         $repository->update($request->all());
         return redirect()->route('repositories.edit', $repository);
     }
 
     public function destroy(Repository $repository)
     {
+        if (Auth::user()->id != $repository->user_id) {
+            abort(403);
+        }
         $repository->delete();
         return redirect()->route('repositories.index');
     }
