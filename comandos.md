@@ -1,7 +1,7 @@
 # Comandos básicos de Laravel
 
-1. php artisan serve
-2. npm run dev
+1. laravel new proyecto
+2. php artisan serve
 3. php artisan make:controller PageController
 4. php artisan migrate
 5. php artisan make:migration create_posts_table
