@@ -10,9 +10,12 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-4">
                 <table>
                     <thead>
-                        <tr>ID</tr>
-                        <tr>Enlace</tr>
-                        <tr>&nbsp;</tr>
+                        <tr>
+                            <th class="px-4 py-2">ID</th>
+                            <th class="px-4 py-2">Enlace</th>
+                            <th class="px-4 py-2">&nbsp;</th>
+                            <th class="px-4 py-2">&nbsp;</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @forelse ($repositories as $repository)
@@ -22,10 +25,13 @@
                                 <td class="border px-4 py-2">
                                     <a href="{{ route('repositories.show', $repository) }}"></a>
                                 </td>
+                                <td class="border px-4 py-2">
+                                    <a href="{{ route('repositories.edit', $repository) }}"></a>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3" class="border px-4 py-2">
+                                <td colspan="4" class="border px-4 py-2">
                                     No hay repositorios creados
                                 </td>
                             </tr>

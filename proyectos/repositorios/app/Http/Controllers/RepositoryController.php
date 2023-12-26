@@ -16,7 +16,7 @@ class RepositoryController extends Controller
 
     public function create()
     {
-        //
+        return view('repositories.create');
     }
 
     public function store(Request $request)
@@ -39,7 +39,10 @@ class RepositoryController extends Controller
 
     public function edit(Repository $repository)
     {
-        //
+        if (Auth::user()->id != $repository->user_id) {
+            abort(403);
+        }
+        return view('repositories.edit', compact('repository'));
     }
 
     public function update(Request $request, Repository $repository)
