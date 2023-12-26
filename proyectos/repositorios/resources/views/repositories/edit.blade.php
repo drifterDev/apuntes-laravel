@@ -11,11 +11,12 @@
                 <form action="{{ route('repositories.update', $repository) }}" method="POST" class="max-w-md">
                     @csrf
                     @method('PUT')
-                    <label for="url" class="block font-medium text-sm text-gray-700">URL *</label>
-                    <input class="form-input w-full rounded-md shadow-sm" type="text" name="url"
-                        value="{{ $repository->url }}">
-                    <label for="description" class="block font-medium text-sm text-gray-700">Descripción *</label>
-                    <textarea name="description" cols="30" rows="10" class="form-input w-full rounded-md shadow-sm">{{ $repository->description }}</textarea>
+                    <label for="url" class="block my-2 font-medium text-sm text-gray-400">URL *</label>
+                    <input class="form-input bg-gray-600 text-white w-full rounded-md shadow-sm" type="text"
+                        name="url" value="{{ $repository->url }}">
+                    <label for="description" class="block my-2 font-medium text-sm text-gray-400">Descripción *</label>
+                    <textarea name="description" cols="30" rows="10"
+                        class="text-white form-input w-full rounded-md shadow-sm bg-gray-600">{{ $repository->description }}</textarea>
                     <hr class="my-4">
                     <input type="submit" value="Editar" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md">
                 </form>

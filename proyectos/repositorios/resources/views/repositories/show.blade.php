@@ -8,8 +8,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-4">
-                <h1>{{ $repository->url }}</h1>
-                <div>{{ $repository->description }}</div>
+                <h1 class=" text-white text-lg mb-4">{{ $repository->url }}</h1>
+                <div class="text-white">{{ $repository->description }}</div>
             </div>
         </div>
     </div>
