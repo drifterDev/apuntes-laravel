@@ -17,5 +17,6 @@
 15. php artisan make:test ExampleTest
 16. php artisan make:test ExampleTest --unit
 17. php artisan test --filter ExampleTest
+18. php artisan livewire:make Task
 
 Recuerda descomentar las líneas referentes a DB en `phpunit.xml` si vas a trabajar con test en bases de datos.
