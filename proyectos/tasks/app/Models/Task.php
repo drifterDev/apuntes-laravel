@@ -13,4 +13,9 @@ class Task extends Model
         'title',
         'done',
     ];
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = ucfirst($value);
+    }
 }
