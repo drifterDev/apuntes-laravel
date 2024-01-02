@@ -23,11 +23,11 @@ class UpdateRecipeRequest extends FormRequest
     {
         return [
             'category_id'   => 'required',
-            'user_id'       => 'required',
             'title'         => 'required',
             'description'   => 'required',
             'ingredients'   => 'required',
             'instructions'  => 'required',
+            'image' => 'mimes:png,jpg'
         ];
     }
 }
