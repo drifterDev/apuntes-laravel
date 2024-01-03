@@ -21,4 +21,8 @@
 19. php artisan db:seed
 20. php artisan route:list --path=api
 
+Por si hay que configurar alguna ruta de los componentes de livewire como por ejemplo la opción de layout:
+
+21. php artisan livewire:publish --config
+
 Recuerda descomentar las líneas referentes a DB en `phpunit.xml` si vas a trabajar con test en bases de datos.
