@@ -23,6 +23,7 @@
     </div>
     <div class="w-full">
         <form class="mb-4">
+            @csrf
             <input type="text" placeholder="// ..."
                 class="bg-slate-800 border-0 rounded-md w-1/3 p-3 text-white/60 text-xs" wire:model.live='search'>
         </form>
