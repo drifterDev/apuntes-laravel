@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ThreadController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\ShowThreads;
 use App\Livewire\ShowThread;
@@ -14,5 +15,9 @@ Route::get('/thread/{thread}', ShowThread::class)
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::resource('threads', ThreadController::class)
+    ->except('show', 'index', 'destroy')
+    ->middleware('auth');
 
 require __DIR__ . '/auth.php';
