@@ -17,10 +17,9 @@
 15. php artisan make:test ExampleTest
 16. php artisan make:test ExampleTest --unit
 17. php artisan test --filter ExampleTest
-18. php artisan livewire:make Task
+18. php artisan make:livewire Task
 19. php artisan db:seed
 20. php artisan route:list --path=api
-21. php artisan make:livewire show-task
 
 Por si hay que configurar alguna ruta de los componentes de livewire como por ejemplo la opción de layout:
 
