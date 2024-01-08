@@ -1,4 +1,4 @@
-<div x-data="{ showSubscribe: false }" class="flex flex-col bg-indigo-900 h-screen">
+<div x-data="{ showSubscribe: false, showSuccess: false }" class="flex flex-col bg-indigo-900 h-screen">
     <nav class="pt-5 flex justify-between items-center container mx-auto text-indigo-200">
         <a href="/" class="text-4xl font-bold">
             <x-application-logo class="w-16 h-16 fill-current"></x-application-logo>
@@ -27,21 +27,28 @@
             </x-secondary-button>
         </div>
     </div>
-    <div x-cloak x-show="showSubscribe" x-on:click.self="showSubscribe = false"
-        x-on:keydown.escape.window="showSubscribe = false"
-        class="flex fixed top-0 w-full bg-gray-900 bg-opacity-60 h-full items-center">
-        <div class="m-auto bg-pink-500 shadow-2xl rounded-xl p-8 ">
-            <p class="text-white font-extrabold text-5xl text-center">Let's do it!</p>
-            <form wire:submit.prevent='subscribe' class="flex flex-col items-center p-24">
-                @csrf
-                <x-text-input placeholder="Email address" type="email" name="email" wire:model='email'
-                    class="px-5 py-3 w-80 dark:text-black dark:bg-white dark:border-blue-400 border"></x-text-input>
-                <span class="text-gray-100 text-xs">We will send you a confirmation email.</span>
-                <x-secondary-button type="submit"
-                    class="px-5 py-3 mt-5 w-80 dark:bg-blue-500 dark:hover:bg-blue-600 justify-center">
-                    {{ __('Get In') }}
-                </x-secondary-button>
-            </form>
-        </div>
-    </div>
+    <x-modal-subscribe trigger="showSubscribe" class="bg-pink-500">
+        <p class="text-white font-extrabold text-5xl text-center">Let's do it!</p>
+        <form wire:submit.prevent='subscribe' class="flex flex-col items-center p-24">
+            @csrf
+            <x-text-input style="color: black;" placeholder="Email address" name="email" wire:model.live='email'
+                class="px-5 py-3 w-80 dark:bg-white dark:border-blue-400 border"></x-text-input>
+            <span class="text-gray-100 text-xs">
+                @error('email')
+                    {{ $message }}
+                @else
+                    We will send you a confirmation email.
+                @enderror
+            </span>
+            <x-secondary-button type="submit"
+                class="px-5 py-3 mt-5 w-80 dark:bg-blue-500 dark:hover:bg-blue-600 justify-center">
+                {{ __('Get In') }}
+            </x-secondary-button>
+        </form>
+    </x-modal-subscribe>
+    <x-modal-subscribe class="bg-green-500" trigger="showSuccess">
+        <p class=" animate-pulse text-white font-extrabold text-9xl text-center">&check;</p>
+        <p class="text-white font-extrabold text-5xl text-center mt-16">Great!</p>
+        <p class="text-white text-3xl text-center ">See you in your inbox.</p>
+    </x-modal-subscribe>
 </div>
