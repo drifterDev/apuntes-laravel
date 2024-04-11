@@ -1,4 +1,4 @@
-# Aprendiendo Laravel
+# Apuntes Laravel
 
 Este repositorio contiene códigos y apuntes de Laravel que he creado a lo largo de mi aprendizaje del desarrollo backend, enfocados en el aprendizaje y la práctica de este famoso framework de PHP.
 
